@@ -4,7 +4,7 @@
     <member name="R:CrashReporter">
       <summary>Crash Reporter us a library used for sending exception
       reports to the Crash Collector website. See http://github.com/pvginkel/CrashCollector
-      and http://github.com/pvginkel/CrashReporter for more information.</summary>
+      and http://github.com/pvginkel/CrashReporter.NET for more information.</summary>
     </member>
     <member name="N:CrashReporter">
       <summary>
