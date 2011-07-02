@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<doc>
+  <members>
+    <member name="R:CrashReporter">
+      <summary>Crash Reporter us a library used for sending exception
+      reports to the Crash Collector website. See http://github.com/pvginkel/CrashCollector
+      and http://github.com/pvginkel/CrashReporter for more information.</summary>
+    </member>
+    <member name="N:CrashReporter">
+      <summary>
+        The CrashReporter namespace contains all classes of the Crash Reporter
+        library.
+      </summary>
+    </member>
+  </members>
+</doc>
