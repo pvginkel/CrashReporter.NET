@@ -23,8 +23,9 @@
     <CopyrightText>Copyright &amp;#169%3b Pieter van Ginkel 2011</CopyrightText>
     <HelpTitle>Crash Reporter</HelpTitle>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\CrashReporter\bin\Debug\CrashReporter.dll" xmlns="" />
-<DocumentationSource sourceFile="..\CrashReporter\bin\Debug\CrashReporter.xml" xmlns="" /></DocumentationSources>
+      <DocumentationSource sourceFile="..\CrashReporter\bin\Debug\CrashReporter.dll" />
+<DocumentationSource sourceFile="..\CrashReporter\bin\Debug\CrashReporter.xml" />
+<DocumentationSource sourceFile="..\CrashReporter\CrashReporterNamespaces.xml" /></DocumentationSources>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in
        order for Visual Studio to perform the build.  The others are optional
