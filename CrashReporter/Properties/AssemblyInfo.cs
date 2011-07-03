@@ -17,5 +17,5 @@ using System;
 
 [assembly: Guid("331a7521-4f8a-4115-a2d4-aef9bb969b5e")]
 
-[assembly: AssemblyVersion("0.1.1.0")]
-[assembly: AssemblyFileVersion("0.1.1.0")]
+[assembly: AssemblyVersion("0.1.2.0")]
+[assembly: AssemblyFileVersion("0.1.2.0")]
