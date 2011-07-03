@@ -383,7 +383,7 @@ namespace CrashReporter
                         return _exceptionFormatters[i].Format(exception);
                 }
 
-                return String.Format("{0} ({1})", exception.Message, exception.GetType().FullName);
+                return String.Format("{0} ({1})", exception.Message.TrimEnd(), exception.GetType().FullName);
             }
         }
     }

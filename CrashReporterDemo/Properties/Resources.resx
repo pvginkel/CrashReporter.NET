@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -114,4 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LoremIpsum" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec libero quis mauris consectetur tincidunt. Suspendisse vitae mauris purus, non eleifend orci. Proin vitae ligula non nibh interdum aliquam at non nisi. Duis sit amet auctor tellus. Suspendisse laoreet dictum pellentesque. Aenean sagittis enim vel nibh sollicitudin suscipit vel vitae felis. Integer ac mauris vitae felis pellentesque commodo sit amet et odio. Aenean semper mattis sem quis posuere. Integer ut eros erat, quis iaculis erat. Ut et sapien purus.
+
+Cras id odio a lectus scelerisque vulputate in in massa. Proin pellentesque aliquam dapibus. Praesent eu massa mauris. Pellentesque hendrerit eros in leo rhoncus vulputate. Pellentesque condimentum nibh quis risus luctus gravida vehicula sed ipsum. Praesent a mauris sit amet ante vehicula aliquam at in justo. Donec vulputate risus sed leo tincidunt ut ultricies nunc porttitor. Praesent sit amet est massa, non blandit nulla. Fusce nec neque a erat pulvinar gravida dignissim et arcu. Nulla dignissim massa nulla, sed eleifend ante. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras nec augue orci, eget pharetra leo.
+
+Maecenas non metus lectus. Phasellus molestie volutpat ipsum et fringilla. Suspendisse nisl ipsum, dignissim eu vulputate et, dictum eget odio. Nunc commodo pulvinar magna ut accumsan. Duis id purus vel velit tincidunt vulputate. Proin in ligula ipsum, ut elementum ante. Nunc rhoncus nisl pellentesque justo hendrerit pellentesque. Phasellus vitae est a arcu euismod lacinia. Ut eget magna sem. Etiam non sapien arcu. Aenean quis nunc at nisi iaculis suscipit a eget neque. Sed vitae arcu vel mi venenatis consectetur eu id justo. Cras quis urna massa, at eleifend nisl. Sed vitae urna quam, sed feugiat eros. Curabitur euismod euismod tempor. Nunc et erat nulla, eget elementum lorem. Vestibulum dapibus volutpat fringilla. Quisque et risus nisi, vitae porta risus.
+
+Praesent ante purus, ornare vel facilisis at, aliquam quis arcu. Proin bibendum dui ac est pellentesque id fringilla felis fermentum. Integer commodo pharetra nisl at adipiscing. Integer eros ligula, iaculis sed sodales vel, tincidunt ac risus. Integer congue ipsum eget neque scelerisque accumsan. Integer dignissim libero quis nisl tempor aliquet imperdiet ante pulvinar. Sed condimentum dictum leo ac feugiat. Praesent viverra nisl lobortis urna egestas eget vulputate arcu porta. Sed posuere consectetur lorem, ut placerat turpis pretium facilisis. Suspendisse ac lorem turpis, ut accumsan nisl. Cras quis sapien lorem. In lobortis lorem sed tortor auctor id bibendum tortor interdum. Vestibulum aliquam aliquam odio, sed hendrerit erat consequat eget.
+
+Nulla fermentum tellus non enim auctor in tempus neque sagittis. Nam tempor faucibus elit sit amet laoreet. Sed orci ante, scelerisque in varius quis, mattis in risus. Quisque facilisis nunc cursus massa lobortis non elementum tellus tempus. Nullam ipsum lacus, sodales in pellentesque a, tincidunt vel massa. Nam eget mauris dui. Etiam vitae enim ante, dictum suscipit nisl. Morbi eget magna orci. Nullam mi ligula, convallis sed commodo nec, iaculis in ipsum. Praesent a magna eu lorem malesuada pharetra semper id lorem. In ultricies, est vel malesuada blandit, metus nulla interdum lorem, eget adipiscing neque nisi in metus. Suspendisse euismod tellus at urna tincidunt ac mollis lectus accumsan. Aenean diam magna, porta vel suscipit vitae, posuere sed orci. Aenean vel sapien tortor, eget posuere enim. Nunc vehicula, ligula vel imperdiet mattis, velit est feugiat ipsum, sed mattis sapien tellus in elit.
+
+Proin rutrum sapien quis ipsum condimentum eu imperdiet libero consectetur. Vestibulum at quam eu risus commodo fermentum. Ut bibendum dui sit amet enim pellentesque varius. Nam lacinia libero at sem egestas at sodales dui volutpat. Nulla consequat mauris vel ante iaculis rhoncus at in nisl. Vestibulum tincidunt lacinia mauris ac facilisis. Fusce id velit diam. Nam libero purus, feugiat quis vestibulum ac, condimentum sit amet purus. Quisque ac feugiat tellus. Integer porttitor enim magna, et porttitor massa. Praesent dapibus venenatis diam, id dapibus elit consectetur ac. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Curabitur tortor ipsum, facilisis eu lacinia in, pulvinar sed elit. Praesent consequat viverra magna porttitor placerat. In bibendum ultricies urna ac auctor. Nam sagittis tempor ligula vel condimentum. Ut congue nisl nec lacus ultricies eu rutrum mauris varius. Praesent pulvinar, ante vitae auctor aliquam, nunc risus consequat augue, tincidunt consequat mi neque eget eros. Integer vel est elit, in imperdiet odio. Sed porta lorem eget dui porta tempus. Vestibulum a nisi orci. Aliquam erat volutpat. Suspendisse sit amet nulla sem. Fusce porttitor, mi eget ullamcorper porta, leo neque varius ligula, ac consectetur quam lectus ac diam. Vestibulum iaculis feugiat placerat. Proin eu diam magna. Curabitur pulvinar fermentum euismod. Morbi justo tellus, ullamcorper in volutpat nec, elementum sed massa. Donec faucibus lobortis est eu malesuada. Sed facilisis, elit semper suscipit fermentum, libero erat commodo lorem, sit amet posuere metus urna scelerisque diam. Phasellus sit amet nisi leo, a tincidunt odio.</value>
+  </data>
 </root>

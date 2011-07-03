@@ -6,10 +6,13 @@ using System.Drawing;
 
 namespace CrashReporter
 {
-    internal class ExceptionControl : Control
+    internal class ExceptionControl : ScrollableControl
     {
         private const int HorizontalSpacing = 6;
         private const int LeftIndent = 8;
+        private const TextFormatFlags MessageFormatFlags = TextFormatFlags.Left | TextFormatFlags.NoPrefix | TextFormatFlags.WordBreak;
+        private const TextFormatFlags AdditionalInformationFormatFlags = TextFormatFlags.EndEllipsis | TextFormatFlags.Left | TextFormatFlags.SingleLine | TextFormatFlags.NoPrefix;
+        private const int MaxCompleteHeight = 600;
 
         private Exception _exception;
         private int _count;
@@ -17,6 +20,8 @@ namespace CrashReporter
         public ExceptionControl()
         {
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
+            AutoScroll = true;
         }
 
         public Exception Exception
@@ -75,7 +80,7 @@ namespace CrashReporter
                     string message = Reporter.FormatException(exception);
 
                     var size = TextRenderer.MeasureText(
-                        message, Font, new Size(Width - currentLeftIndent, int.MaxValue)
+                        message, Font, new Size(ClientSize.Width - currentLeftIndent, int.MaxValue), MessageFormatFlags
                     );
 
                     runningHeight += size.Height + HorizontalSpacing;
@@ -88,49 +93,54 @@ namespace CrashReporter
                 if (_count > 1)
                     runningHeight += fontHeight;
 
-                return new Size(Width, runningHeight);
+                AutoScrollMinSize = new Size(0, runningHeight);
+
+                return new Size(Width, Math.Min(MaxCompleteHeight, runningHeight));
             }
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            base.OnPaint(e);
+
             var arrow = Properties.Resources.arrow;
 
             int leftIndent = LeftIndent + arrow.Width;
             int currentLeftIndent = 0;
 
-            int runningHeight = 0;
+            int runningHeight = AutoScrollPosition.Y;
             var exception = _exception;
             bool hadOne = false;
+
+            int fontHeight = TextRenderer.MeasureText("w", Font).Height;
 
             while (exception != null)
             {
                 string message = Reporter.FormatException(exception);
 
                 var size = TextRenderer.MeasureText(
-                    message, Font, new Size(Width - currentLeftIndent, int.MaxValue)
+                    message, Font, new Size(ClientSize.Width - currentLeftIndent, int.MaxValue),
+                    MessageFormatFlags
                 );
 
                 TextRenderer.DrawText(
                     e.Graphics, message, Font,
                     new Rectangle(currentLeftIndent, runningHeight, size.Width, size.Height),
-                    ForeColor, BackColor
+                    ForeColor, BackColor, MessageFormatFlags
                 );
 
                 int currentRunningHeight = runningHeight;
 
                 runningHeight += size.Height + HorizontalSpacing;
 
-                if (!hadOne)
+                if (!hadOne && exception.InnerException != null)
                 {
                     using (var boldFont = new Font(Font, FontStyle.Bold))
                     {
-                        int fontHeight = TextRenderer.MeasureText("w", boldFont).Height;
-
                         TextRenderer.DrawText(
                             e.Graphics, Properties.Resources.AdditionalInformation + ":",
-                            boldFont, new Rectangle(currentLeftIndent, runningHeight, Width, fontHeight),
-                            ForeColor, BackColor, TextFormatFlags.Left
+                            boldFont, new Rectangle(currentLeftIndent, runningHeight, ClientSize.Width, fontHeight),
+                            ForeColor, BackColor, AdditionalInformationFormatFlags
                         );
 
                         runningHeight += fontHeight + HorizontalSpacing;
@@ -149,6 +159,9 @@ namespace CrashReporter
 
                 exception = exception.InnerException;
             }
+
+            AutoScrollMinSize = new Size(0, runningHeight - AutoScrollPosition.Y);
+            Size = new Size(Width, Math.Min(runningHeight - AutoScrollPosition.Y, MaxCompleteHeight));
         }
     }
 }

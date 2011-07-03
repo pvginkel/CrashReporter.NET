@@ -33,6 +33,7 @@
             this._throwSimpleButton = new System.Windows.Forms.Button();
             this._throwNestedButton = new System.Windows.Forms.Button();
             this._reportSimpleButton = new System.Windows.Forms.Button();
+            this._largeMessageButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _throwOtherThreadButton
@@ -84,11 +85,22 @@
             this._reportSimpleButton.UseVisualStyleBackColor = true;
             this._reportSimpleButton.Click += new System.EventHandler(this._reportSimpleButton_Click);
             // 
+            // _largeMessageButton
+            // 
+            this._largeMessageButton.Location = new System.Drawing.Point(12, 153);
+            this._largeMessageButton.Name = "_largeMessageButton";
+            this._largeMessageButton.Size = new System.Drawing.Size(273, 23);
+            this._largeMessageButton.TabIndex = 7;
+            this._largeMessageButton.Text = "Report an exception with a large message";
+            this._largeMessageButton.UseVisualStyleBackColor = true;
+            this._largeMessageButton.Click += new System.EventHandler(this._largeMessageButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 157);
+            this.ClientSize = new System.Drawing.Size(297, 187);
+            this.Controls.Add(this._largeMessageButton);
             this.Controls.Add(this._reportSimpleButton);
             this.Controls.Add(this._throwNestedButton);
             this.Controls.Add(this._throwSimpleButton);
@@ -108,6 +120,7 @@
         private System.Windows.Forms.Button _throwSimpleButton;
         private System.Windows.Forms.Button _throwNestedButton;
         private System.Windows.Forms.Button _reportSimpleButton;
+        private System.Windows.Forms.Button _largeMessageButton;
     }
 }
 
